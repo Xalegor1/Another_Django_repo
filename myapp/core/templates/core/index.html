@@ -6,22 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'core/styles/base.css' %}">
+    <link rel="stylesheet" href="{% static 'core/styles/all-breaths.css' %}">
     <title>MoonBreath</title>
 </head>
 <body>
-    <h1>This is moonbreath</h1>
-    <p>Hello my brother</p>
-
-    {% if show_breath %}
-        {% for breath_item in breaths %}<br>
-            <dd>{{breath_item.breath}}</dd>            
-        {% endfor %}  
-          
-    {% elif not show_breath %}
-        <h2>Srry bout that</h2>
-    {% endif %}    
-        
-
+    <header>
+        <nav><a href="/index">DjangoBreaths</a></nav>
+        <h1>The Lengedary Breaths</h1>
+        <p>Let us know your breath!</p>
+    </header>
+    <main>
+        <section>
+            <h2>Upcoming</h2>
+            <ol>
+                {% for i in breaths %}
+                    <li class="breath-item">
+                        <article>
+                            <div class="breath-summary">
+                                <div class="breath-image">
+                                    <img src="" alt="">
+                                </div>
+                                <div class="breath-details">
+                                    <h3>{{i.breath}}</h3>
+                                    <address>{{i.location}}</address>
+                                </div>
+                            </div>
+                            <div class="breath-actions">
+                                <a href="" class="btn">More details</a>
+                            </div>
+                        </article>
+                    </li>
+                {% endfor %}
+            </ol>
+        </section>
+    </main>
 
 </body>
 </html>

@@ -5,8 +5,16 @@ from django.http import HttpResponse
 
 def index(request):
     context = [
-        {'breath': 'Breath of the Sun'},
-        {'breath': 'Water style: Shark breath'}
+        {   
+            'breath': 'Breath of the Sun', 
+            'location':'Paris', 
+            'slug':'a-first-breath'
+        },
+        {
+            'breath': 'Water style: Shark breath', 
+            'location': 'Ufa',
+            'slug':'a-second-breath'
+         }
     ]
     return render(request, 'core/index.html', {
         'show_breath': True,
